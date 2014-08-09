@@ -10,4 +10,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.hostname = 'ansible-test-server'
     host.vm.network :private_network, ip: '192.168.100.10', netmask: '255.255.255.0'
   end
+
+  config.vm.provision 'ansible' do |ansible|
+    ansible.playbook = 'example.yml'
+    ansible.inventory_path = 'hosts'
+    ansible.limit = 'all'
+  end
 end
