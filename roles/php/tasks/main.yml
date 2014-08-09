@@ -1,0 +1,5 @@
+---
+# ansible playbook for installing php
+
+- name: install php
+  yum: name=php enablerepo=remi-php55 state=present

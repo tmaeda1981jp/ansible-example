@@ -1,0 +1,7 @@
+---
+- hosts: 192.168.100.10
+  sudo: yes
+  roles:
+    - nginx
+    - php
+

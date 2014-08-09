@@ -1,0 +1,8 @@
+---
+# ansible plyabook for install epel, and remi repositories
+
+- name: install EPEL repository
+  yum: name=http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm state=present
+
+- name: install REMI repository
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-5.rpm state=present
