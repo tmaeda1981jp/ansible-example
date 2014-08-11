@@ -10,18 +10,18 @@ describe package('php-fpm') do
   it { should be_installed }
 end
 
-# describe package('php-mbstring') do
-#   it { should be_installed }
-# end
+describe package('php-mbstring') do
+  it { should be_installed }
+end
 
-# describe package('php-mysql') do
-#   it { should be_isntalled }
-# end
+describe package('php-mysqlnd') do
+  it { should be_installed }
+end
 
-# describe package('php-pdo') do
-#   it { should be_installed }
-# end
+describe package('php-pdo') do
+  it { should be_installed }
+end
 
-# describe package('php-xml') do
-#   it { should be_installed }
-# end
+describe package('php-xml') do
+  it { should be_installed }
+end
