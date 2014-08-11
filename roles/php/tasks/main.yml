@@ -14,6 +14,14 @@
 - name: start php-fpm service
   service: name=php-fpm state=started enabled=yes
 
+- name: put phpinfo
+  template:
+    src=phpinfo.php.j2
+    dest=/var/www/phpinfo.php
+    owner=root
+    group=root
+    mode=0644
+
 - name: put www.conf
   template:
     src=www.conf.j2
