@@ -10,6 +10,17 @@ describe package('php-fpm') do
   it { should be_installed }
 end
 
+describe service('php-fpm') do
+  it { should be_enabled }
+  it { should be_running }
+end
+
+describe file('/etc/php-fpm.d/www.conf') do
+  it { should be_file }
+  its(:content) { should match(/group = nginx/) }
+  its(:content) { should match(/user = nginx/) }
+end
+
 describe package('php-mbstring') do
   it { should be_installed }
 end
@@ -25,3 +36,4 @@ end
 describe package('php-xml') do
   it { should be_installed }
 end
+

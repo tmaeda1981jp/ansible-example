@@ -10,3 +10,16 @@
     - php-mysqlnd
     - php-pdo
     - php-xml
+
+- name: start php-fpm service
+  service: name=php-fpm state=started enabled=yes
+
+- name: put www.conf
+  template:
+    src=www.conf.j2
+    dest=/etc/php-fpm.d/www.conf
+    owner=root
+    group=root
+    mode=0644
+  notify:
+    - restart php-fpm
