@@ -3,3 +3,6 @@
 
 - name: install php
   yum: name=php enablerepo=remi-php55 state=present
+
+- name: install php-fpm
+  yum: name=php-fpm enablerepo=remi-php55 state=present
