@@ -1,0 +1,27 @@
+---
+# ansible playbook for installing httpd
+
+- name: install httpd
+  yum: name=httpd state=present
+
+- name: install mod-ssl
+  yum: name=mod_ssl state=present
+
+# - name: create /htdocs
+#   file: dest=/htdocs
+#         state=directory
+#         recurse=yes
+#         mode=0777
+
+- name: start httpd service
+  service: name=httpd state=started enabled=yes
+
+- name: put httpd.conf
+  template:
+    src=httpd.conf.j2
+    dest=/etc/httpd/conf/httpd.conf
+    owner=root
+    group=root
+    mode=0644
+  notify:
+    - restart httpd service
