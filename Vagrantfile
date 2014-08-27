@@ -17,5 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.limit = 'all'
   end
 
-  config.vm.synced_folder 'shared/', '/home/vagrant/shared', type: 'rsync', rsync__exclude: '.git/'
+  config.vm.synced_folder 'shared/', '/home/vagrant/shared', nfs: true
+  config.ssh.forward_agent = true
 end
