@@ -12,7 +12,7 @@ describe service('ntpd') do
 end
 
 describe file('/etc/ntp.conf') do
-  it {  should be_file }
+  it { should be_file }
   its(:content) { should match(%r{^server ntp.nict.jp$}) }
   its(:content) { should match(%r{^server ntp.jst.mfeed.ad.jp$}) }
 end
